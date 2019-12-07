@@ -14,4 +14,4 @@ Utility to help query MSSQL reporting server
             ["ReportParameter"] = aValueHere
         }
     };
-    var stream = SSRSQuery.SSRSQueryClient.DownloadReport_AsStream(options);
+    var stream = await SSRSQuery.SSRSQueryClient.DownloadReport_AsStream(options);
