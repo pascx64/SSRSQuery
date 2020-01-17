@@ -7,7 +7,7 @@ namespace SSRSQuery
 {
     public static class SSRSQueryClient
     {
-        public static async Task<Stream> DownloadReport_AsStream(SSRSQueryOptions options)
+        public static string GenerateQueryUrl( SSRSQueryOptions options )
         {
             var format = "&rs:Format=" + (options.FileType == FileType.PDF ? "PDF" : "EXCELOPENXML");
             var url = options.ServerURL + "?/" + options.ReportName + "&rs:Command=Render" + format;
@@ -41,9 +41,15 @@ namespace SSRSQuery
 
             url += parametersJoined;
 
+            return url;
+        }
+
+        public static async Task<Stream> DownloadReport_AsStream(SSRSQueryOptions options)
+        {
+            var url = GenerateQueryUrl(options);
             using var handler = new System.Net.Http.HttpClientHandler()
             {
-                Credentials = System.Net.CredentialCache.DefaultCredentials
+                Credentials = options.Credentials
             };
             using var client = new System.Net.Http.HttpClient(handler);
 

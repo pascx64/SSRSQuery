@@ -21,5 +21,7 @@ namespace SSRSQuery
         public Dictionary<string, object>? Parameters { get; set; } = null;
 
         public System.Threading.CancellationToken CancellationToken { get; set; } = default;
+
+        public System.Net.ICredentials Credentials { get; set; } = System.Net.CredentialCache.DefaultCredentials;
     }
 }
