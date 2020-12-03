@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>Enable</Nullable>
-    <Version>1.0.1.2</Version>
+    <Version>1.0.1.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Pascal Arnold</Authors>
     <Description>Utility to help query MSSQL reporting server</Description>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace SSRSQuery
     {
         public static string GenerateQueryUrl( SSRSQueryOptions options )
         {
-            var format = "&rs:Format=" + (options.FileType == FileType.PDF ? "PDF" : "EXCELOPENXML");
+            var format = "&rs:Format=" + (options.FileType == FileType.PDF ? "PDF" : options.FileType == FileType.Image ? "IMAGE" : "EXCELOPENXML");
             var url = options.ServerURL + "?/" + options.ReportName + "&rs:Command=Render" + format;
 
             string parametersJoined = "";
